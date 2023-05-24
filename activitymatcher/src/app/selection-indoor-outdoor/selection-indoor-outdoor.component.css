@@ -3,7 +3,8 @@
   background-color: #5F6BD4;
   color: white;
   width: 267px;
-  height: 100px
+  height: 100px;
+  border-radius: 15px;
 }
 .outdoorButton{
   font-size: xx-large;
@@ -11,7 +12,9 @@
   color: white;
   background-color:#4AD227;
   width: 267px;
-  height: 100px
+  height: 100px;
+  border-radius: 15px;
+
 }
 .startButton{
   font-size: xx-large;
@@ -20,6 +23,7 @@
   width: 175px;
   height: 75px;
   margin-left: 45px;
+  border-radius: 15px;
 }
 .container {
   display: flex;
