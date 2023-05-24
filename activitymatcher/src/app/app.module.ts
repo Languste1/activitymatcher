@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ActivitySwipeComponent } from './activity-swipe/activity-swipe.component';
+import { ActivityComponent } from './activity/activity.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     NavbarComponent,
-    ActivitySwipeComponent
+    ActivitySwipeComponent,
+    ActivityComponent
   ],
   imports: [
     BrowserModule,
