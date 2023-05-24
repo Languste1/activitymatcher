@@ -1,0 +1,30 @@
+.indoorButton{
+  font-size: xx-large;
+  background-color: #5F6BD4;
+  color: white;
+  width: 267px;
+  height: 100px
+}
+.outdoorButton{
+  font-size: xx-large;
+  margin-top:75px;
+  color: white;
+  background-color:#4AD227;
+  width: 267px;
+  height: 100px
+}
+.startButton{
+  font-size: xx-large;
+  background-color: #349E03;
+  color: white;
+  width: 175px;
+  height: 75px;
+  margin-left: 45px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1vh;
+}
+
