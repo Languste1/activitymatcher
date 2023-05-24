@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SelectionIndoorOutdoorComponent } from './selection-indoor-outdoor/selection-indoor-outdoor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    SelectionIndoorOutdoorComponent
   ],
   imports: [
     BrowserModule,
