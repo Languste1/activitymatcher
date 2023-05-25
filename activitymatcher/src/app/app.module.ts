@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ActivitySwipeComponent } from './activity-swipe/activity-swipe.component';
 import { ActivityComponent } from './activity/activity.component';
 import { SelectionIndoorOutdoorComponent } from './selection-indoor-outdoor/selection-indoor-outdoor.component';
+import { ActivityMatchComponent } from './activity-match/activity-match.component';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,10 @@ import { SelectionIndoorOutdoorComponent } from './selection-indoor-outdoor/sele
     LandingPageComponent,
     NavbarComponent,
     ActivitySwipeComponent,
-    ActivityComponent
+    ActivityComponent,
     NavbarComponent,
-    SelectionIndoorOutdoorComponent
+    SelectionIndoorOutdoorComponent,
+    ActivityMatchComponent
   ],
   imports: [
     BrowserModule,

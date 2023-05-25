@@ -6,9 +6,8 @@ import {ActivitySwipeComponent} from "./activity-swipe/activity-swipe.component"
 
 const routes: Routes = [
   {path: "", component: LandingPageComponent},
+  {path: "swipe", component: ActivitySwipeComponent},
   {path: "selection", component: SelectionIndoorOutdoorComponent}
-  {path: "", component: LandingPageComponent},
-  {path: "swipe", component: ActivitySwipeComponent}
 
 
 ];
