@@ -9,6 +9,7 @@ import { ActivitySwipeComponent } from './activity-swipe/activity-swipe.componen
 import { ActivityComponent } from './activity/activity.component';
 import { SelectionIndoorOutdoorComponent } from './selection-indoor-outdoor/selection-indoor-outdoor.component';
 import { ActivityMatchComponent } from './activity-match/activity-match.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ActivityMatchComponent } from './activity-match/activity-match.componen
     ActivityComponent,
     NavbarComponent,
     SelectionIndoorOutdoorComponent,
-    ActivityMatchComponent
+    ActivityMatchComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

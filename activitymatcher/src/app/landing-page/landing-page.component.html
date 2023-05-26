@@ -1,3 +1,4 @@
+<!-- header -->
 <div class="container text-center mt-4">
   <div class="row">
     <div class="col">
@@ -6,3 +7,14 @@
   </div>
 </div>
 
+<!-- sign in/up page if not signed in -->
+<div> <!--*ngIf="loggedOut"-->
+  <app-sign-up></app-sign-up>
+</div>
+
+<!-- choose location if signed in -->
+<div> <!--*ngIf="loggedIn"-->
+  <!--
+<app-selection-indoor-outdoor></app-selection-indoor-outdoor>
+  -->
+</div>
