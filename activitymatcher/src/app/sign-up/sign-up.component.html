@@ -54,6 +54,9 @@
                 <div class="col-auto">
                   <input type="text" class="form-control" [(ngModel)]="registerRequest.username">
                 </div>
+                <div *ngIf="!isValidUsername && registerRequest.username">
+                  <small class="errormsg">Username can only have numbers, letters and "-"</small>
+                </div>
               </div>
             </div>
 
@@ -61,23 +64,42 @@
               <h3>Email:</h3>
               <div class="row g-3 align-items-center">
                 <div class="col-auto">
-                  <input type="email" id="inputEmail" [(ngModel)]="registerRequest.email" class="form-control" aria-labelledby="passwordHelpInline">
+                  <input type="email" id="inputEmail" [(ngModel)]="registerRequest.email" class="form-control"
+                         aria-labelledby="passwordHelpInline">
+                </div>
+                <div *ngIf="!isValidEmail && registerRequest.email">
+                  <small class="errormsg">Please enter a valid e-mail</small>
                 </div>
                 <div class="col-auto">
                 </div>
               </div>
             </div>
 
-            <div class="mt-4">
-              <h3>Password:</h3>
-              <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <input type="password" id="inputPassword" [(ngModel)]="registerRequest.password" class="form-control" aria-labelledby="passwordHelpInline">
+            <div class="field">
+              <label class="label">Password:</label>
+              <div class="control input-wrapper">
+                <input #passwordInput class="input" type="password" [(ngModel)]="registerRequest.password" name="password" placeholder="Password">
+                <span class="icon is-small input-icon" style="padding-bottom: 10px" (click)="togglePasswordVisibility(passwordInput)">
+                  <i class="fas" [ngClass]="{'fa-eye-slash': passwordInput.type === 'password', 'fa-eye': passwordInput.type === 'text'}"></i>
+                </span>
+              </div>
+              <div *ngIf="registerRequest.password">
+                <div *ngIf="!pwIsLengthValid()">
+                  <small class="errormsg">Your password needs a length of 5</small>
                 </div>
-                <div class="col-auto">
+                <div *ngIf="!pwHasNumber()">
+                  <small class="errormsg">Your password needs a number</small>
+                </div>
+                <div *ngIf="!pwHasUppercase()">
+                  <small class="errormsg">Your password needs an uppercase letter</small>
                 </div>
               </div>
             </div>
+
+
+
+
+
 
             <div class="mt-4">
               <h3>Confirm password:</h3>
@@ -98,7 +120,6 @@
           </div>
 
         </form>
-
 
       </div>
     </div>

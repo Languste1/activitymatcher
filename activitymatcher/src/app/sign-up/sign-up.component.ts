@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {RegisterRequest} from "../interfaces/register-request";
 import {AuthService} from "../services/auth.service";
 import {RefreshService} from "../services/refresh.service";
+import {FormsModule} from "@angular/forms";
 
 
 @Component({
