@@ -11,6 +11,7 @@ import { SelectionIndoorOutdoorComponent } from './selection-indoor-outdoor/sele
 import { ActivityMatchComponent } from './activity-match/activity-match.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import {FormsModule} from "@angular/forms";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CommonModule
 
   ],
   providers: [],
