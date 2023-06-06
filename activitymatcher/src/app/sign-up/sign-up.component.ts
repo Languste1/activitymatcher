@@ -10,7 +10,7 @@ import {FormsModule} from "@angular/forms";
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent {
 
@@ -19,7 +19,7 @@ export class SignUpComponent {
     email: "",
     password: ""
   };
-
+  probe: boolean = true;
   confirmPassword: string = '';
   isValidPassword: boolean = false;
   isValidUsername: boolean = false;
@@ -32,10 +32,15 @@ export class SignUpComponent {
   @Output() registerSuccess = new EventEmitter<RegisterRequest>();
   @Output() showLogin = new EventEmitter<void>();
 
-  constructor(private authService: AuthService, private router: Router,private refreshService: RefreshService) {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private refreshService: RefreshService
+    ) {
   }
 
   ngOnInit(): void {
+
   }
 
   onSubmit() {
