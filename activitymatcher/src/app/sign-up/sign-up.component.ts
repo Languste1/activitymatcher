@@ -15,9 +15,9 @@ import {FormsModule} from "@angular/forms";
 export class SignUpComponent {
 
   registerRequest: RegisterRequest = {
-    username: '',
-    email: '',
-    password: ''
+    username: "",
+    email: "",
+    password: ""
   };
 
   confirmPassword: string = '';
