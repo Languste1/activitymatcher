@@ -1,24 +1,25 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {RegisterRequest} from "../interfaces/register-request";
 import {AuthService} from "../services/auth.service";
 import {RefreshService} from "../services/refresh.service";
-import {FormsModule} from "@angular/forms";
 
+  @Component({
+    selector: 'app-sign-up',
+    templateUrl: './sign-up.component.html',
+    styleUrls: ['./sign-up.component.css'],
+  })
 
-@Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css'],
-})
-export class SignUpComponent {
+export class SignUpComponent implements OnInit{
+
 
   registerRequest: RegisterRequest = {
     username: "",
     email: "",
     password: ""
   };
+
   probe: boolean = true;
   confirmPassword: string = '';
   isValidPassword: boolean = false;
@@ -28,20 +29,23 @@ export class SignUpComponent {
   isEmailEmpty: boolean = true;
   isEmptyUsername: boolean = true;
   isEmptyPassword: boolean = true;
+
   @Output() closeRegister = new EventEmitter<void>();
   @Output() registerSuccess = new EventEmitter<RegisterRequest>();
   @Output() showLogin = new EventEmitter<void>();
+
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private refreshService: RefreshService
-    ) {
+  ) {
   }
 
   ngOnInit(): void {
 
   }
+
 
   onSubmit() {
 
@@ -66,12 +70,12 @@ export class SignUpComponent {
         this.refreshService.setPassword(this.registerRequest.password);
         this.resetInputFields();
 
-        //this.router.navigateByUrl('/login');
+        this.router.navigateByUrl('/login');
       }//,
       //error => {
-        //this.toastr.error('Username or Email are already in use', 'Error!', {
-          //positionClass: 'toast-top-center'
-        //});
+      //this.toastr.error('Username or Email are already in use', 'Error!', {
+      //positionClass: 'toast-top-center'
+      //});
       //}
     );
   }
@@ -160,6 +164,7 @@ export class SignUpComponent {
   togglePasswordVisibility(input: HTMLInputElement): void {
     input.type = input.type === 'password' ? 'text' : 'password';
   }
+
 
 
 }

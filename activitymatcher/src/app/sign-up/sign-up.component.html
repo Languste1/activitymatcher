@@ -52,7 +52,7 @@
               <h3>Username:</h3>
               <div class="row g-3 align-items-center">
                 <div class="col-auto">
-                  <input type="text" class="form-control"[(ngModel)]="registerRequest.username">
+                  <input type="text" class="form-control" [(ngModel)]="registerRequest.username">
                 </div>
                 <div *ngIf="!isValidUsername && registerRequest.username">
                   <small class="errormsg">Username can only have numbers, letters and "-"</small>
@@ -74,7 +74,9 @@
                 </div>
               </div>
             </div>
+
             <div *ngIf="true"> vvv </div>
+
 
             <div class="field">
               <label class="label">Password:</label>
@@ -96,7 +98,6 @@
                 </div>
               </div>
             </div>
-
 
 
 
