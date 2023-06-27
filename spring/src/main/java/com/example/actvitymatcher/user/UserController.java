@@ -16,6 +16,7 @@ public class UserController {
 
 
     @PostMapping("/text")
+    @CrossOrigin(origins = "http://localhost:4200/api"+"/test")
     public ResponseEntity<String> processText(@RequestBody String text) {
         // Verarbeite den empfangenen Text hier
         System.out.println("Empfangener Text: " + text);

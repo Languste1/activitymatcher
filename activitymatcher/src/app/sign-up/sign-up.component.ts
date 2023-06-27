@@ -70,7 +70,7 @@ export class SignUpComponent implements OnInit{
         this.refreshService.setPassword(this.registerRequest.password);
         this.resetInputFields();
 
-        this.router.navigateByUrl('/login');
+        this.router.navigateByUrl('/login').then();
       }//,
       //error => {
       //this.toastr.error('Username or Email are already in use', 'Error!', {
@@ -98,29 +98,29 @@ export class SignUpComponent implements OnInit{
     return this.registerRequest.password === this.confirmPassword;
   }
 
-  // checkPassword(){
-  //   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,}$/;
-  //   this.isValidPassword = regex.test(this.registerRequest.password)
-  //   if (this.matchingPasswords()){
-  //     if (this.registerRequest.password!==""){
-  //       if (regex.test(this.registerRequest.password)){
-  //         this.isEmptyPassword=false;
-  //         this.isValidPassword=true;
-  //         this.isConfirmPasswordValid=true;
-  //       }
-  //     }else {
-  //       this.isEmptyPassword=false;
-  //       this.isValidPassword=false;
-  //       this.isConfirmPasswordValid=true;
-  //     }
-  //   }else {
-  //     this.isEmptyPassword=true;
-  //     this.isValidPassword=false;
-  //     this.isConfirmPasswordValid=false;
-  //   }
-  //
-  //
-  // }
+  checkPassword(){
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,}$/;
+    this.isValidPassword = regex.test(this.registerRequest.password)
+    if (this.matchingPasswords()){
+      if (this.registerRequest.password!==""){
+        if (regex.test(this.registerRequest.password)){
+          this.isEmptyPassword=false;
+          this.isValidPassword=true;
+          this.isConfirmPasswordValid=true;
+        }
+      }else {
+        this.isEmptyPassword=false;
+        this.isValidPassword=false;
+        this.isConfirmPasswordValid=true;
+      }
+    }else {
+      this.isEmptyPassword=true;
+      this.isValidPassword=false;
+      this.isConfirmPasswordValid=false;
+    }
+
+
+  }
 
   pwIsLengthValid(): boolean {
     return this.registerRequest.password.length >= 5;

@@ -34,7 +34,6 @@
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Sign up
   </button>
-
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -52,7 +51,7 @@
               <h3>Username:</h3>
               <div class="row g-3 align-items-center">
                 <div class="col-auto">
-                  <input type="text" class="form-control" [(ngModel)]="registerRequest.username">
+                  <input type="text" name="username" class="form-control" [(ngModel)]="registerRequest.username" (ngModelChange)="checkUsername()">
                 </div>
                 <div *ngIf="!isValidUsername && registerRequest.username">
                   <small class="errormsg">Username can only have numbers, letters and "-"</small>
@@ -64,8 +63,8 @@
               <h3>Email:</h3>
               <div class="row g-3 align-items-center">
                 <div class="col-auto">
-                  <input type="email" id="inputEmail" [(ngModel)]="registerRequest.email" class="form-control"
-                         aria-labelledby="passwordHelpInline">
+                  <input type="email" name="email" id="inputEmail" [(ngModel)]="registerRequest.email" class="form-control"
+                         aria-labelledby="passwordHelpInline" (ngModelChange)="checkEmail()">
                 </div>
                 <div *ngIf="!isValidEmail && registerRequest.email">
                   <small class="errormsg">Please enter a valid e-mail</small>
@@ -74,9 +73,6 @@
                 </div>
               </div>
             </div>
-
-            <div *ngIf="true"> vvv </div>
-
 
             <div class="field">
               <label class="label">Password:</label>
@@ -99,8 +95,6 @@
               </div>
             </div>
 
-
-
             <div class="mt-4">
               <h3>Confirm password:</h3>
               <div class="row g-3 align-items-center">
@@ -116,7 +110,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!isValidUsername || !isValidEmail || !pwIsValid()">Save changes</button>
           </div>
 
         </form>
@@ -125,7 +119,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- buttons for social media -->
 <div class="container text-center  mt-5">

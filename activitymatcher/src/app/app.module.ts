@@ -11,6 +11,7 @@ import { ActivityMatchComponent } from './activity-match/activity-match.componen
 import { SignUpComponent } from './sign-up/sign-up.component';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
