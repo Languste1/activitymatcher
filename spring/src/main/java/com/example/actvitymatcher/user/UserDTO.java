@@ -20,7 +20,6 @@ public class UserDTO {
 
     public UserDTO(User user) {
         this.username = user.getUsername();
-        //Check if this works! Datatype in User-class is byte!
         this.email = user.getEmail();
         this.password = user.getPassword();
         //this.image = Arrays.toString(user.getImage());
