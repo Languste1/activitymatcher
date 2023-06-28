@@ -13,143 +13,141 @@
     <h3>Password:</h3>
     <div class="row g-3 align-items-center">
       <div class="col-auto">
-        <input type="password" id="inputPassword6" class="form-control password-box"
-               aria-labelledby="passwordHelpInline">
-      </div>
-      <div class="col-auto">
+        <input type="password" class="form-control password-box">
       </div>
     </div>
   </div>
+
 
   <div class="container text-center mt-3">
     <button type="button" class="btn btn-primary" data-bs-target="#exampleModal">
       Login
     </button>
   </div>
-</div>
 
-<!-- sign up modal -->
-<div class="container text-center mt-5">
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Sign up
-  </button>
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
+  <!-- sign up modal -->
+  <div class="container text-center mt-5">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Sign up
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
 
-        <form (ngSubmit)="onSubmit()">
+          <form (ngSubmit)="onSubmit()">
 
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Sign up</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="username"></div>
-            <div>
-              <h3>Username:</h3>
-              <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <input type="text" name="username" class="form-control" [(ngModel)]="registerRequest.username" (ngModelChange)="checkUsername()">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Sign up</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="username"></div>
+              <div>
+                <h3>Username:</h3>
+                <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <input type="text" name="username" class="form-control" [(ngModel)]="registerRequest.username"
+                           (ngModelChange)="checkUsername()">
+                  </div>
+                  <div *ngIf="!isValidUsername && registerRequest.username">
+                    <small class="errormsg">Username can only have numbers, letters and "-"</small>
+                  </div>
                 </div>
-                <div *ngIf="!isValidUsername && registerRequest.username">
-                  <small class="errormsg">Username can only have numbers, letters and "-"</small>
+              </div>
+
+              <div class="mt-4">
+                <h3>Email:</h3>
+                <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <input type="email" name="email" id="inputEmail" [(ngModel)]="registerRequest.email"
+                           class="form-control"
+                           aria-labelledby="passwordHelpInline" (ngModelChange)="checkEmail()">
+                  </div>
+                  <div *ngIf="!isValidEmail && registerRequest.email">
+                    <small class="errormsg">Please enter a valid e-mail</small>
+                  </div>
+                  <div class="col-auto">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="mt-4">
+                <h3>Password:</h3>
+                <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <input type="password" name="password" id="passwordInput" [(ngModel)]="registerRequest.password"
+                           class="form-control"
+                           aria-labelledby="passwordHelpInline" (ngModelChange)="checkEmail()">
+                  </div>
+                  <div *ngIf="registerRequest.password">
+                    <div *ngIf="!pwIsLengthValid()">
+                      <small class="errormsg">Your password needs a length of 5</small>
+                    </div>
+                    <div *ngIf="!pwHasNumber()">
+                      <small class="errormsg">Your password needs a number</small>
+                    </div>
+                    <div *ngIf="!pwHasUppercase()">
+                      <small class="errormsg">Your password needs an uppercase letter</small>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="mt-4">
+                <h3>Confirm Password:</h3>
+                <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <input type="password" id="confirmPassword" class="form-control"
+                           aria-labelledby="passwordHelpInline">
+                  </div>
+                  <div class="col-auto">
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div class="mt-4">
-              <h3>Email:</h3>
-              <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <input type="email" name="email" id="inputEmail" [(ngModel)]="registerRequest.email" class="form-control"
-                         aria-labelledby="passwordHelpInline" (ngModelChange)="checkEmail()">
-                </div>
-                <div *ngIf="!isValidEmail && registerRequest.email">
-                  <small class="errormsg">Please enter a valid e-mail</small>
-                </div>
-                <div class="col-auto">
-                </div>
-              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary"
+                      [disabled]="!isValidUsername || !isValidEmail || !pwIsValid()">Save changes
+              </button>
             </div>
 
+          </form>
 
-            <div class="field">
-              <label class="label">Password:</label>
-              <div class="control input-wrapper">
-                <input #passwordInput class="input" type="password" [(ngModel)]="registerRequest.password" name="password" placeholder="Password">
-                <span class="icon is-small input-icon" style="padding-bottom: 10px" (click)="togglePasswordVisibility(passwordInput)">
-                  <i class="fas" [ngClass]="{'fa-eye-slash': passwordInput.type === 'password', 'fa-eye': passwordInput.type === 'text'}"></i>
-                </span>
-
-          <div class="mt-4">
-            <h3>confirm password:</h3>
-            <div class="row g-3 align-items-center">
-              <div class="col-auto">
-                <input type="password" id="inputPassword2" class="form-control" aria-labelledby="passwordHelpInline">
-
-              </div>
-              <div *ngIf="registerRequest.password">
-                <div *ngIf="!pwIsLengthValid()">
-                  <small class="errormsg">Your password needs a length of 5</small>
-                </div>
-                <div *ngIf="!pwHasNumber()">
-                  <small class="errormsg">Your password needs a number</small>
-                </div>
-                <div *ngIf="!pwHasUppercase()">
-                  <small class="errormsg">Your password needs an uppercase letter</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-4">
-              <h3>Confirm password:</h3>
-              <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <input type="password" id="confirmPassword" class="form-control" aria-labelledby="passwordHelpInline">
-                </div>
-                <div class="col-auto">
-                </div>
-              </div>
-            </div>
-
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" [disabled]="!isValidUsername || !isValidEmail || !pwIsValid()">Save changes</button>
-          </div>
-
-        </form>
+        </div>
 
       </div>
     </div>
-  </div>
-</div>
 
-<!-- buttons for social media -->
-<div class="container text-center  mt-5">
-  <div class="row align-items-start">
-    <!-- check for better format -->
-    <div class="col"></div>
-    <div class="col"></div>
-    <div class="col">
-      <img src="assets/buttons/googleIcon.svg" alt="">
+    <!-- buttons for social media -->
+    <div class="container text-center  mt-5">
+      <div class="row align-items-start">
+        <!-- check for better format -->
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col">
+          <img src="assets/buttons/googleIcon.svg" alt="">
+        </div>
+        <div class="col">
+          <img src="assets/buttons/facebookIcon.svg" alt="">
+        </div>
+        <div class="col">
+          <img src="assets/buttons/appleIcon.svg" alt="">
+        </div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
     </div>
-    <div class="col">
-      <img src="assets/buttons/facebookIcon.svg" alt="">
-    </div>
-    <div class="col">
-      <img src="assets/buttons/appleIcon.svg" alt="">
-    </div>
-    <div class="col"></div>
-    <div class="col"></div>
-  </div>
-</div>
 
-<div class="container text-center mt-5">
-  <div class="col">
-    <img src="assets/buttons/gpsButton.svg" alt="">
-  </div>
-</div>
+    <div class="container text-center mt-5">
+      <div class="col">
+        <img src="assets/buttons/gpsButton.svg" alt="">
+      </div>
+    </div>
+

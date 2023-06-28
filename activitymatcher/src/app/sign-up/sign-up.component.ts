@@ -65,7 +65,7 @@ export class SignUpComponent implements OnInit{
         });
          */
 
-        this.registerSuccess.emit();
+        this.registerSuccess.emit(this.registerRequest);
         this.refreshService.setUsername(this.registerRequest.username);
         this.refreshService.setPassword(this.registerRequest.password);
         this.resetInputFields();
