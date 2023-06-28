@@ -14,12 +14,15 @@ import java.util.Arrays;
 public class UserDTO {
 
     private String username;
-
-    private String image;
+    private String email;
+    private String password;
+    //private String image;
 
     public UserDTO(User user) {
         this.username = user.getUsername();
         //Check if this works! Datatype in User-class is byte!
-        this.image = Arrays.toString(user.getImage());
+        this.email = user.getEmail();
+        this.password = user.getPassword();
+        //this.image = Arrays.toString(user.getImage());
     }
 }

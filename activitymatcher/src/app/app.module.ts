@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -10,6 +9,9 @@ import { ActivityComponent } from './activity/activity.component';
 import { SelectionIndoorOutdoorComponent } from './selection-indoor-outdoor/selection-indoor-outdoor.component';
 import { ActivityMatchComponent } from './activity-match/activity-match.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import {CommonModule} from "@angular/common";
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -25,7 +27,10 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    CommonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
