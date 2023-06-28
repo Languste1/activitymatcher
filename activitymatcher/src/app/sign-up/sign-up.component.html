@@ -74,6 +74,7 @@
               </div>
             </div>
 
+
             <div class="field">
               <label class="label">Password:</label>
               <div class="control input-wrapper">
@@ -81,6 +82,13 @@
                 <span class="icon is-small input-icon" style="padding-bottom: 10px" (click)="togglePasswordVisibility(passwordInput)">
                   <i class="fas" [ngClass]="{'fa-eye-slash': passwordInput.type === 'password', 'fa-eye': passwordInput.type === 'text'}"></i>
                 </span>
+
+          <div class="mt-4">
+            <h3>confirm password:</h3>
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                <input type="password" id="inputPassword2" class="form-control" aria-labelledby="passwordHelpInline">
+
               </div>
               <div *ngIf="registerRequest.password">
                 <div *ngIf="!pwIsLengthValid()">
