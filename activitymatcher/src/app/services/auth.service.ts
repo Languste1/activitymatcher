@@ -22,7 +22,7 @@ export class AuthService {
     //username: this.getUsername(),
     //role: this.getRole()
   //}
-  private apiUrl = 'http://localhost:8080/api/text';
+  private apiUrl = 'http://localhost:8080';
   private authStatus = new BehaviorSubject<boolean>(false);
 
 

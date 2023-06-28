@@ -1,10 +1,11 @@
 package com.example.actvitymatcher.user;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/api")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
 
@@ -15,16 +16,27 @@ public class UserController {
     }
 
 
-    @PostMapping("/text")
-    @CrossOrigin(origins = "http://localhost:4200/api"+"/test")
-    public ResponseEntity<String> processText(@RequestBody String text) {
-        // Verarbeite den empfangenen Text hier
-        System.out.println("Empfangener Text: " + text);
+    @CrossOrigin(origins = "http://localhost:4200/**")
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody UserDTO userDTO) {
+        try {
+            System.out.println(userDTO.getUsername());
+            // Add your logic here
 
-        // Gib eine Antwort zurück (optional)
-        String response = "Text erfolgreich empfangen";
-        return ResponseEntity.ok(response);
+            // Return a ResponseEntity instance
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            System.out.println("Kein user");
+            // Handle the exception and return a ResponseEntity with an appropriate error message
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
-
-
 }
+
+
+
+
+
+
+
+

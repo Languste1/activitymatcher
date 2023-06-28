@@ -70,7 +70,8 @@ export class SignUpComponent implements OnInit{
         this.refreshService.setPassword(this.registerRequest.password);
         this.resetInputFields();
 
-        this.router.navigateByUrl('/login').then();
+        //this.router.navigateByUrl('/login').then();
+
       }//,
       //error => {
       //this.toastr.error('Username or Email are already in use', 'Error!', {
