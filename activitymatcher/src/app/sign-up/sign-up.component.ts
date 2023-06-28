@@ -49,12 +49,14 @@ export class SignUpComponent implements OnInit{
 
   onSubmit() {
 
+
     /*
     if (!this.isValidUsername || !this.isValidEmail || !this.pwIsValid()) {
-      this.toastr.error('Please fill in all required fields correctly', "", {positionClass: 'toast-top-center'});
+      //this.toastr.error('Please fill in all required fields correctly', "", {positionClass: 'toast-top-center'});
       return;
     }
      */
+
 
     this.authService.register(this.registerRequest).subscribe(
       data => {
