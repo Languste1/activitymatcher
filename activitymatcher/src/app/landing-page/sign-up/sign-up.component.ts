@@ -1,9 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {RegisterRequest} from "../interfaces/register-request";
-import {AuthService} from "../services/auth.service";
-import {RefreshService} from "../services/refresh.service";
+import {RegisterRequest} from "../../interfaces/register-request";
+import {AuthService} from "../../services/auth.service";
+import {RefreshService} from "../../services/refresh.service";
 
   @Component({
     selector: 'app-sign-up',

@@ -1,0 +1,17 @@
+.align-items-center{
+  display: inline-block;
+}
+
+.username-box{
+  border: 1px solid black;
+  background-color: #B4CADE !important;
+}
+
+.password-box{
+  border: 1px solid black;
+  background-color: #D1E7CC !important;
+}
+
+.text-bg-primary {
+}
+
