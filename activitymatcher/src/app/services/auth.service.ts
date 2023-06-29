@@ -18,9 +18,9 @@ export class AuthService {
   @Output() role: EventEmitter<string> = new EventEmitter();
 
   //refreshTokenPayload = {
-    //refreshToken: this.getJwtToken(),
-    //username: this.getUsername(),
-    //role: this.getRole()
+  //refreshToken: this.getJwtToken(),
+  //username: this.getUsername(),
+  //role: this.getRole()
   //}
   private apiUrl = 'http://localhost:8080';
   private authStatus = new BehaviorSubject<boolean>(false);
@@ -38,22 +38,20 @@ export class AuthService {
     return this.http.get<User>("http://localhost:8080/api/users/" + username);
   }
 
-  /*
-authenticate(request: AuthenticationRequest): Observable<boolean> {
-  return this.http.post<AuthenticationResponse>(`${this.apiUrl}/authenticate`,
-    request).pipe(map(data => {
-    this.localStorage.store('username', data.username);
-    this.localStorage.store('token', data.token);
-    this.localStorage.store('role', data.role);
 
-    this.loggedIn.emit(true);
-    this.username.emit(data.username);
-    this.role.emit(data.role);
-    return true;
-  }));
-}
+  authenticate(request: AuthenticationRequest): Observable<boolean> {
+    return this.http.post<AuthenticationResponse>(`${this.apiUrl}/authenticate`,
+      request).pipe(map(data => {
+      //this.localStorage.store('username', data.username);
+      //this.localStorage.store('token', data.token);
+      //this.localStorage.store('role', data.role);
 
-   */
+      this.loggedIn.emit(true);
+      this.username.emit(data.username);
+      //this.role.emit(data.role);
+      return true;
+    }));
+  }
 
 
   /*
