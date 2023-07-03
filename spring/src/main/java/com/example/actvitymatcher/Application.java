@@ -34,13 +34,14 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);    }
 
+    // post construct uses all the methods listed
     @PostConstruct
     @Transactional
     public void dummyData() {
         createUserData();
     }
 
-
+    //creat some userdummys to show up in the db
     public void createUserData() {
 
         for (int i = 0; i < 7; i++) {
