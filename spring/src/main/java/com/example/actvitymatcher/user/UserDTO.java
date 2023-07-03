@@ -22,6 +22,8 @@ public class UserDTO {
         this.username = user.getUsername();
         this.email = user.getEmail();
         this.password = user.getPassword();
+
+        //todo implement when pictures can be saved in db
         //this.image = Arrays.toString(user.getImage());
     }
 }

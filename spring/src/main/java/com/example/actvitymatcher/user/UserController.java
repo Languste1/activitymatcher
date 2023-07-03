@@ -34,6 +34,7 @@ public class UserController {
         this.authenticationService = authenticationService;
     }
 
+    //register user with userDTO from frontend
     @CrossOrigin(origins = "http://localhost:4200/**")
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody UserDTO userDTO) {
@@ -48,6 +49,7 @@ public class UserController {
         }
     }
 
+    // authenticate with request data from frontend
     @PostMapping("/authenticate")
     public ResponseEntity<?> authenticate(@RequestBody AuthenticationRequest request){
         try{

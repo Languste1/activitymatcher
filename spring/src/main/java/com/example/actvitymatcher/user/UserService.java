@@ -13,6 +13,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    //saves userdata to db
     public User saveUser(UserDTO userDTO) {
         User user = new User();
         user.setUsername(userDTO.getUsername());

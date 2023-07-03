@@ -54,27 +54,27 @@ export class LoginComponent {
   }
 
   login() {
-
+    //username and password check
     this.loginRequest.username = this.loginForm.get('username').value;
     this.loginRequest.password = this.loginForm.get('password').value;
 
+    //loginrequest send to authentication
     this.authService.authenticate(this.loginRequest).subscribe(data => {
       this.isError = false;
       //this.router.navigateByUrl('/home');
       console.log("login successful!");
 
-
-
       const jsonString = JSON.stringify(data, null, 2);
       console.log(jsonString)
-
 
       const Json =this.authService.authenticate(this.loginRequest);
       console.log(data.valueOf());
       //this.toastr.success('Login Successful','Success', {
       //positionClass: 'toast-top-center'
       });
+      // if success emit is executed
       this.loginSuccess.emit();
+
       //this.resetInput();
       this.refreshService.triggerNavImageRefresh();
     };//, error => {
@@ -84,11 +84,13 @@ export class LoginComponent {
        // positionClass: 'toast-top-center'
       //});
 
+  //todo reset input is not used yet
   resetInput(){
     this.loginForm.get('username').setValue('');
     this.loginForm.get('password').setValue('');
   }
 
+  // toggles password visibility
   togglePasswordVisibility(input: HTMLInputElement): void {
     input.type = input.type === 'password' ? 'text' : 'password';
     this.passwordVisible = !this.passwordVisible;

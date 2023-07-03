@@ -39,6 +39,7 @@ export class AuthService {
   }
 
 
+  // authentication checks if user and password are correct or even available
   authenticate(request: AuthenticationRequest): Observable<boolean> {
     return this.http.post<AuthenticationResponse>(`${this.apiUrl}/authenticate`,
       request).pipe(map(data => {
