@@ -16,14 +16,22 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         this.userRepository = userRepository;
     }
 
+    /*an attempt is made to retrieve a user from the database based on the username.
+    If the user is not found, a "UserDoesntExistException" is thrown.*/
+
     @Override
     public AuthenticationResponse authenticate(AuthenticationRequest request) throws UserDoesntExistException {
         var user = userRepository.findByUsername(request.getUsername())
                 .orElseThrow(() -> new UserDoesntExistException("User with the given username doesn't exist"));
 
+        /*an attempt is made to retrieve a user password from the database.
+        If the password is not found, a "PasswordExpiredException" is thrown.*/
+
         var password = userRepository.findByPassword(request.getPassword())
                 .orElseThrow(() -> new PasswordExpiredException("Password doesn't exist"));
 
+        /*A new "AuthenticationResponse" is created,
+        using the username and password from the previous steps.*/
 
         return new AuthenticationResponse(user.getUsername(), password.getPassword());
     }

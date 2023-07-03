@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 @Service
 public interface AuthenticationService {
 
+    /*The AuthenticationService interface defines methods for authenticating users,
+    including checking user credentials and generating an authentication response.*/
 
     //AuthenticationResponse register(RegisterRequest request) throws UserAlreadyExistsException;
 

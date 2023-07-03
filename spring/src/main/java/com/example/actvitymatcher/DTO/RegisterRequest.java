@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+
+/*The parameters to be expected when requesting registration*/
+
 public class RegisterRequest {
 
    private String username;

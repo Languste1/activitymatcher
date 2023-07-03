@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+
+/*The parameters to be expected in a response*/
 public class AuthenticationResponse {
 
     private  String username;
