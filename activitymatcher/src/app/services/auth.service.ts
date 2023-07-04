@@ -54,6 +54,10 @@ export class AuthService {
     }));
   }
 
+  isLoggedIn(): boolean {
+    return this.loggedIn != null;
+  }
+
 
   /*
   logout() {
