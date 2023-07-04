@@ -54,11 +54,6 @@ export class AuthService {
     }));
   }
 
-  isLoggedIn(): boolean {
-    return this.loggedIn != null;
-  }
-
-
   /*
   logout() {
     this.http.post(`${this.apiUrl}/logout`, this.refreshTokenPayload,
