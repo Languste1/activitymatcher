@@ -54,7 +54,6 @@ export class AuthService {
     }));
   }
 
-
   /*
   logout() {
     this.http.post(`${this.apiUrl}/logout`, this.refreshTokenPayload,
